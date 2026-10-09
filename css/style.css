@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #eeeeee;
+    font-size: 12px;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+
+}
+
+header a {
+    color: #eeeeee;
+    font-weight: 300;
+    margin-right: 40px;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    margin-top: -50px;
+    overflow: hidden;
+}
+
+.container .lista .list-itens {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.container .lista .list-itens img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.container .lista .list-itens .conteudo {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    padding-right: 30%;
+    width: 80%;
+    color: #eeeeee;
+    text-shadow: 0px 5px 10px #0004;
+}
+
+.container .lista .list-itens .titulo {
+    font-size: 5em;
+    font-weight: 700;
+    line-height: 1.3em;
+}
+
+.container .lista .list-itens .descricao {
+    font-size: 1.5em;
+}
+
+.container .lista .list-itens .botoes {
+    display: grid;
+    grid-template-columns: repeat(2, 130px);
+    grid-template-rows: 40px;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.container .lista .list-itens .botoes button {
+    border: none;
+    background-color: #eeeeee;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.7s;
+}
+.container .lista .list-itens .botoes button:hover {
+    background-color: transparent;
+    border: 1px solid #eeeeee;
+    color: #eeeeee;
+}
+
+.container .lista .list-itens .botoes button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #eeeeee;
+    color: #eeeeee;
+}
+.container .lista .list-itens .botoes button:nth-child(2):hover {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+.container .thumb {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    display: flex;
+    gap: 20px;
+}
+
+.container .thumb .thumb-itens {
+    width: 135px;
+    height: 200px;
+    position: relative;
+    z-index: 4;
+}
+
+.container .thumb .thumb-itens img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(80%);
+}
+
+.container .thumb .conteudo {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.container .setas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 300px;
+    position: absolute;
+    bottom: 120px;
+    left: 120px;
+}
+
+.container .setas button {
+    border-radius: 10px;
+    border: none;
+    padding: 12px 17px;
+    background-color: #eee4;
+    color: #eeeeee;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.5em;
+}
+.container .setas button:hover {
+    background-color: #eeeeee;
+    color: #000000;
+    transition: 0.7s;
+}
+
+/* ANIIMATIONS */
+
+.container.next .thumb {
+    animation: efeitoNovaThumb 0.5s linear 1 forwards;
+}
+
+@keyframes efeitoNovaThumb {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+.container.next .thumb .thumb-itens:nth-last-child(1) {
+    animation: aparecerThumb 0.5s linear 1 forwards;
+}
+
+@keyframes aparecerThumb {
+    from {
+        width: 0px;
+        opacity: 0;
+    }
+}
+
+.container .lista .list-itens:nth-last-child(1) .conteudo .titulo,
+.container .lista .list-itens:nth-last-child(1) .conteudo .descricao,
+.container .lista .list-itens:nth-last-child(1) .conteudo .botoes {
+    transform: translateY(50px);
+    filter: blur(21px);
+    opacity: 0;
+    animation: mostrarConteudo 0.5s 1s linear forwards;
+}
+
+.container .lista .list-itens:nth-last-child(1) .conteudo .titulo {
+    animation-delay: 1.2s;
+}
+
+.container .lista .list-itens:nth-last-child(1) .conteudo .descricao {
+    animation-delay: 1.6s;
+}
+
+.container .lista .list-itens:nth-last-child(1) .conteudo .botoes {
+    animation-delay: 2s;
+}
+
+@keyframes mostrarConteudo {
+    to {
+        transform: translateY(0px);
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+
+.container.next .lista .list-itens:nth-last-child(1) img {
+    width: 150px;
+    height: 220px;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    border-radius: 30px;
+    animation: expandirImagem 0.5s linear 1 forwards;
+}
+
+@keyframes expandirImagem {
+    to {
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+}
+
+.container.back .lista .list-itens:nth-child(1) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: esconderImagem 0.5s linear 1 forwards;
+    z-index: 2;
+}
+
+@keyframes esconderImagem {
+    to {
+        width: 135px;
+        height: 200px;
+        border-radius: 10px;
+        left: 50%;
+        bottom: 50px;
+    }
+}
+
+@keyframes esconderImagemResponsivo {
+    to {
+        width: 135px;
+        height: 200px;
+        border-radius: 10px;
+        left: 68%;
+        bottom: -250px;
+    }
+}
+
+@media(max-width: 600px) {
+    .container .thumb {
+        display: none;
+    }
+
+    .container .lista .list-itens .titulo {
+        font-size: 2.8em;
+    }
+
+    .container .lista .list-itens .descricao {
+        font-size: 1.3em;
+    }
+
+    .container.back .lista .list-itens:nth-child(1) img {
+        animation: esconderImagemResponsivo 0.8s linear 1 forwards;
+    }
+}
